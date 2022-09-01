@@ -5,7 +5,9 @@ const URL = 'https://jsonplaceholder.typicode.com/users';
 // .then/.catch
 fetch(URL)
     .then(response => response.json())
-    .then(users => console.log(users.filter(user => user.company.name === 'Johns Group')))
+    .then(users => {const result = users.find(user => user.company.name === 'Johns Group')
+        console.log(result)
+    })
     .catch(error => console.error(error));
 
 
@@ -14,7 +16,8 @@ fetch(URL)
 //     try {
 //         const response = await fetch(URL);
 //         const users = await response.json();
-//         console.log(users.filter(user => user.company.name === 'Johns Group'));
+//         const result = users.find(user => user.company.name === 'Johns Group')
+//         console.log(result);
 //     } catch (error){
 //         console.log(error);
 //         }
